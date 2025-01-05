@@ -34,7 +34,9 @@ router.post('/signup', async (req, res) => {
 
         // Send token in cookie and return success message
         res.cookie('token', token, { httpOnly: true, secure: false });
-        res.status(200).json({ message: 'Signed Up  successfully' });
+        res.status(200).json({ message: 'Signed Up  successfully' ,
+                             data : token
+                             });
 
     } catch (error) {
         console.error(error.message);
@@ -71,7 +73,9 @@ router.post('/login', async (req, res) => {
   
       // Respond with the token
       res.cookie('token', token, { httpOnly: true, secure: false });
-      res.status(200).json({ message: 'Logged in successfully' });
+      res.status(200).json({ message: 'Logged in successfully',
+                           data : token
+                           });
     } catch (err) {
       console.error('Error during login:', err);
       res.status(500).json({ message: 'Server error' });
