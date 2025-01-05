@@ -8,13 +8,12 @@ const cookieParser = require('cookie-parser');
 dotenv.config();
 
 const app = express();
+app.use(cors());
 
 app.use(express.json());  // This middleware parses incoming JSON requests
 app.use(cookieParser());  // This middleware parses cookies
 
 
-
-app.use(cors());
 
 
 mongoose
